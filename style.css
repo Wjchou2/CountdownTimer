@@ -1,13 +1,29 @@
+*{
+  font-family: Arial, Helvetica, sans-serif;
+}
 .countdown{
-margin-top: 0%;
-  /* transition: all 2s; */
-    /* transition: color 0.1s; */
-    font-size: 50px;
-    font-family: Arial, Helvetica, sans-serif;
+  margin-top: -70px;   
+    margin-right: 2px;
+    margin-bottom: 2px;
+    margin-left: 2px;
     text-align: center;
-      display: inline-block;
+    display: inline-block;
   font-size: 4rem;
   padding: 0.2em 0.4em;
+  background: #222;
+  color: #fff;
+  border-radius: 0.2em;
+  transform-origin: center center;
+  perspective: 800px;
+  transition: transform 0.5s ease;
+}
+
+.countdownMini{
+margin-top: 0%;
+    text-align: center;
+      display: inline-block;
+  font-size: 2rem;
+  padding: 0.1em 0.4em;
   background: #222;
   color: #fff;
   border-radius: 0.2em;
@@ -16,19 +32,70 @@ margin-top: 0%;
   transition: transform 0.5s ease;
 }
 
-.digit-container {
-    /* margin-top: 25%; */
-     /* margin-left: 50rem; */
-  perspective: 700px;
-  display: inline-block;
+.setButton{
+  text-align: center;
+  font-size: 2rem;
+  padding: 0.2em 0.4em;
+  background: #222;
+  color: #fff;
+  border-radius: 0.2em;
+  transform-origin: center center;
+  transition: all 0.15s;
+  cursor: pointer;
+
+  position: absolute;
+  top: 65%;
+  left: 50%;
+  transform: translate(-50%, -50%); 
 
 }
+.setButton:hover{
+  font-size: 2.1rem;
+}
 
+.digit-container {
+    height: 100vh; 
+   display: flex;
+  justify-content: center; 
+  align-items: center;    
+}
+#popup{
+text-align: center;
+color: white;
+font-size: 30px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%); 
+width: 40vw;
+height: 40vh;
+background-color: #222;
+border-radius: 30px;
+display: none;
+  z-index: 1001; 
+  font-weight: bold;
+}
+#overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0,0,0,0.5); /* black with 50% opacity */
+  display: none; /* hidden by default */
+  z-index: 100;  /* behind the popup */
+  transition: all 0.1s;
+}
+#datetime{
+  text-align: center;
+  width:70%;
+    height:60px;
+    font-size: 20px;
+    border-radius: 20px;
+}
 
 body {
-  height: 100vh; /* full viewport height */
-  margin: 0;
-  display: flex;
-  justify-content: center; /* horizontal center */
-  align-items: center;     /* vertical center */
+
+ margin: 0;
+  height: 100vh; 
 }

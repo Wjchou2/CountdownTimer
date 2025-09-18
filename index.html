@@ -1,26 +1,58 @@
 <!DOCTYPE html>
 
 <html lang="en">
-    <body>
-        <div class="digit-container">
-            <!-- <p class="countdown" id="2">0</p>
-            <p class="countdown" id="hour1">0</p> -->
-            <!-- <p class="countdown">:</p> -->
-            <p class="countdown" id="hour2">0</p>
-            <p class="countdown" id="hour1">0</p>
-            <p class="countdown">:</p>
-            <p class="countdown" id="min2">0</p>
-            <p class="countdown" id="min1">0</p>
-            <p class="countdown">:</p>
-            <p class="countdown" id="sec2">0</p>
-            <p class="countdown" id="sec1">0</p>
-        </div>
-    </body>
     <head>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>Document</title>
-        <script src="script.js"></script>
+        <title>Countdown</title>
+        <link rel="icon" type="image/x-icon" href="favicon.ico" />
+
         <link rel="stylesheet" href="style.css" />
+        <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+        <link
+            rel="stylesheet"
+            href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css"
+        />
     </head>
+    <body>
+        <div id="overlay"></div>
+        <div class="digit-container">
+            <p class="countdown" id="year2">0</p>
+            <p class="countdown" id="year1">0</p>
+            <p class="countdownMini">y</p>
+            <p class="countdown" id="month2">0</p>
+            <p class="countdown" id="month1">0</p>
+            <p class="countdownMini">m</p>
+            <p class="countdown" id="day2">0</p>
+            <p class="countdown" id="day1">0</p>
+            <p class="countdownMini">d</p>
+            <p class="countdown" id="hour2">0</p>
+            <p class="countdown" id="hour1">0</p>
+            <p class="countdownMini">h</p>
+            <p class="countdown" id="min2">0</p>
+            <p class="countdown" id="min1">0</p>
+            <p class="countdownMini">m</p>
+            <p class="countdown" id="sec2">0</p>
+            <p class="countdown" id="sec1">0</p>
+            <p class="countdownMini">s</p>
+        </div>
+        <button class="setButton" id="openMenu" onclick="showPopup()">
+            Set Countdown
+        </button>
+
+        <div id="popup">
+            <p>New Countdown Date</p>
+            <div id="dateSelector">
+                <input id="datetime" type="text" />
+                <script>
+                    flatpickr("#datetime", {
+                        enableTime: true,
+                        dateFormat: "Y-m-d H:i",
+                    });
+                </script>
+            </div>
+            <button class="setButton" id="setButton">Set Date</button>
+        </div>
+        <script src="script.js"></script>
+    </body>
 </html>
