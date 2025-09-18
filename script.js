@@ -1,6 +1,6 @@
 // const { json } = require("express/lib/response");
 
-let countdownEndDate = new Date("September 30, 2025 21:24:00");
+let countdownEndDate = new Date("September 30, 2027 21:24:00");
 
 const setButton = document.getElementById("setButton");
 const dateInput = document.getElementById("datetime");
