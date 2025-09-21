@@ -8,4 +8,4 @@ Try the demo:
 
 <a href="https://wjchou2.github.io/CountdownTimer/index.html"></a>
 
-<img src="demo.png"></img>
+<!-- <img src="demo.png"></img> -->
