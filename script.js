@@ -51,7 +51,9 @@ function getStoredDate() {
 }
 function calculateTime() {
     const now = new Date();
-
+    if (new Date() - countdownEndDate > 0) {
+        return null;
+    }
     years = countdownEndDate.getFullYear() - now.getFullYear();
     months = countdownEndDate.getMonth() - now.getMonth();
     days = countdownEndDate.getDate() - now.getDate();
@@ -93,21 +95,36 @@ function calculateTime() {
     days = days.toString().padStart(2, "0");
     months = months.toString().padStart(2, "0");
     years = years.toString().padStart(2, "0");
+    return true;
 }
 setInterval(() => {
-    calculateTime();
-    flipAndChangeNumber(sec1, seconds.charAt(1));
-    flipAndChangeNumber(sec2, seconds.charAt(0));
-    flipAndChangeNumber(min1, minutes.charAt(1));
-    flipAndChangeNumber(min2, minutes.charAt(0));
-    flipAndChangeNumber(hour1, hours.charAt(1));
-    flipAndChangeNumber(hour2, hours.charAt(0));
-    flipAndChangeNumber(day1, days.charAt(1));
-    flipAndChangeNumber(day2, days.charAt(0));
-    flipAndChangeNumber(month1, months.charAt(1));
-    flipAndChangeNumber(month2, months.charAt(0));
-    flipAndChangeNumber(year1, years.charAt(1));
-    flipAndChangeNumber(year2, years.charAt(0));
+    if (calculateTime() == null) {
+        flipAndChangeNumber(sec1, 0);
+        flipAndChangeNumber(sec2, 0);
+        flipAndChangeNumber(min1, 0);
+        flipAndChangeNumber(min2, 0);
+        flipAndChangeNumber(hour1, 0);
+        flipAndChangeNumber(hour2, 0);
+        flipAndChangeNumber(day1, 0);
+        flipAndChangeNumber(day2, 0);
+        flipAndChangeNumber(month1, 0);
+        flipAndChangeNumber(month2, 0);
+        flipAndChangeNumber(year1, 0);
+        flipAndChangeNumber(year2, 0);
+    } else {
+        flipAndChangeNumber(sec1, seconds.charAt(1));
+        flipAndChangeNumber(sec2, seconds.charAt(0));
+        flipAndChangeNumber(min1, minutes.charAt(1));
+        flipAndChangeNumber(min2, minutes.charAt(0));
+        flipAndChangeNumber(hour1, hours.charAt(1));
+        flipAndChangeNumber(hour2, hours.charAt(0));
+        flipAndChangeNumber(day1, days.charAt(1));
+        flipAndChangeNumber(day2, days.charAt(0));
+        flipAndChangeNumber(month1, months.charAt(1));
+        flipAndChangeNumber(month2, months.charAt(0));
+        flipAndChangeNumber(year1, years.charAt(1));
+        flipAndChangeNumber(year2, years.charAt(0));
+    }
 
     // sec1.innerHTML = seconds.charAt(1);
     // sec2.innerHTML = seconds.charAt(0);
