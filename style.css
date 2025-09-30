@@ -17,6 +17,20 @@
   perspective: 800px;
   transition: transform 0.5s ease;
 }
+#colorContainer{
+justify-content: center;
+display:flex;
+/* position: absolute; */
+margin-top: -15%;
+
+
+}
+.colorButton{
+  position: relative;
+  width: 3%;
+  aspect-ratio: 1/1;
+  border-radius: 10px;
+}
 
 .countdownMini{
 margin-top: 0%;

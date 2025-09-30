@@ -49,6 +49,30 @@ function getStoredDate() {
         dateInput.value = new Date();
     }
 }
+
+updateColor(JSON.parse(localStorage.getItem("color")));
+function colorChange(button) {
+    let color = button.style.backgroundColor;
+    updateColor(color);
+}
+function updateColor(color) {
+    localStorage.setItem("color", JSON.stringify(color));
+
+    let divs = document.querySelectorAll(".countdown");
+
+    divs.forEach((div) => {
+        div.style.backgroundColor = color;
+    });
+    divs = document.querySelectorAll(".countdownMini");
+
+    divs.forEach((div) => {
+        div.style.backgroundColor = color;
+    });
+    divs = document.querySelectorAll(".setButton");
+    divs.forEach((div) => {
+        div.style.backgroundColor = color;
+    });
+}
 function calculateTime() {
     const now = new Date();
     if (new Date() - countdownEndDate > 0) {
@@ -138,7 +162,39 @@ setInterval(() => {
     //     .toString()
     //     .padStart(2, "0")} Seconds`;
 }, 1000);
+function rotate() {
+    flip(document.getElementsByClassName("digit-container")[0]);
+}
+function flip(thingToFlip) {
+    requestAnimationFrame(() => {
+        thingToFlip.style.transition = "none";
+        thingToFlip.style.transform = "rotateY(0deg)";
+    });
+    requestAnimationFrame(() => {
+        thingToFlip.style.transition = "transform 1s linear";
+        thingToFlip.style.transform = "rotateY(90deg)";
+    });
+    setTimeout(() => {
+        requestAnimationFrame(() => {
+            thingToFlip.style.transition = "none";
+            thingToFlip.style.transform = "rotateY(270deg)";
+        });
+        // thingToFlip.innerHTML = newNum;
 
+        requestAnimationFrame(() => {
+            setTimeout(() => {
+                thingToFlip.style.transition = "transform 1s linear";
+                thingToFlip.style.transform = "rotateY(360deg)";
+            }, 0);
+        });
+        setTimeout(() => {
+            requestAnimationFrame(() => {
+                thingToFlip.style.transition = "none";
+                thingToFlip.style.transform = "rotateY(0deg)";
+            });
+        }, 1000); // half duration of first animation
+    }, 1000); // half duration of first animation
+}
 function flipAndChangeNumber(thingToFlip, newNum) {
     if (newNum == thingToFlip.innerText) {
         return;
